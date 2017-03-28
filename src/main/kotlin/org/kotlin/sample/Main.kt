@@ -1,18 +1,25 @@
 package org.kotlin.sample
 
+import javax.script.ScriptEngineManager
+
+// TypeAlias
+
 class Main {
     companion object {
         @JvmStatic
         fun main(vararg args: String) {
-            val persons = listOf(Person("John Doe", "London", "123"),
-                    Person("Jane Doe", "London", "456"),
-                    Person("Apple", "Tree", "789"))
-            //TODO first last find
-            //TODO filter
-            //TODO reduce fold
-            //TODO associate
-            //TODO groupby
-            //map, zip, etc.
+            // Bound callable references
+            // Sealed class outer scope, data class inheritance
+            // Destructuring lambdas, _
+            // Underscore in int consts
+            // Shorter syntax for properties
+            // Inline properties
+            // local delegated properties
+            // Delegated property interception - operator provideDelegate
+            // @DslMarker annotation class
+            // enumValues<T> generics
+            // String to Number conversions
         }
     }
 }
+
