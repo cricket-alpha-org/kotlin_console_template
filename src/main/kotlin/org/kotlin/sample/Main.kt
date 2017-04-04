@@ -1,24 +1,36 @@
 package org.kotlin.sample
 
-import javax.script.ScriptEngineManager
-
-// TypeAlias
+import kotlinx.coroutines.experimental.*
+import kotlinx.coroutines.experimental.channels.produce
 
 class Main {
     companion object {
         @JvmStatic
         fun main(vararg args: String) {
-            // Bound callable references
-            // Sealed class outer scope, data class inheritance
-            // Destructuring lambdas, _
-            // Underscore in int consts
-            // Shorter syntax for properties
-            // Inline properties
-            // local delegated properties
-            // Delegated property interception - operator provideDelegate
-            // @DslMarker annotation class
-            // enumValues<T> generics
-            // String to Number conversions
+            produce(CommonPool) {
+                send(1)
+            }
+            runBlocking {
+                Job
+                println("Thread 1 id = ${Thread.currentThread().id}")
+                val job = launch(CommonPool) {
+                    (1..10).forEach {
+                        println("Thread 2 id = ${Thread.currentThread().id}")
+                        println(it)
+                        delay(100)
+                    }
+                }
+                withTimeout(500) {
+
+                }
+                println("Thread 4 id = ${Thread.currentThread().id}")
+                (10..20).forEach {
+                    println(it)
+                    delay(100)
+                }
+                job.join()
+                println("Thread 5 id = ${Thread.currentThread().id}")
+            }
         }
     }
 }
