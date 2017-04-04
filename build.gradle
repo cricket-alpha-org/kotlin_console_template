@@ -22,6 +22,8 @@ repositories {
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     compile "org.jetbrains.kotlinx:kotlinx-coroutines-core:0.14"
+    compile "org.jetbrains.kotlinx:kotlinx-coroutines-rx2:0.14"
+    compile "io.reactivex.rxjava2:rxjava:2.0.8"
 }
 
 task wrapper(type: Wrapper) {

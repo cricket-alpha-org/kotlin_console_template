@@ -2,11 +2,22 @@ package org.kotlin.sample
 
 import kotlinx.coroutines.experimental.*
 import kotlinx.coroutines.experimental.channels.produce
+import kotlin.coroutines.experimental.CoroutineContext
 
 class Main {
     companion object {
         @JvmStatic
         fun main(vararg args: String) {
+            (1..10000).forEach {
+                launch(CommonPool) {
+                    delay(1000)
+                    println("test")
+                    async(CommonPool) {
+
+                    }.await()
+                }
+            }
+
             produce(CommonPool) {
                 send(1)
             }
